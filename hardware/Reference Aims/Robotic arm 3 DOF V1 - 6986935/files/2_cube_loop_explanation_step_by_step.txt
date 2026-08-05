@@ -1,0 +1,18 @@
+Prestep lower arm
+Step 1. grab cube 1, rotate 180 degrees and raise arm
+Step 2. lower arm
+Step 3. release cube 1, move one tiny step (in order to properly trigger code)
+Step 4. raise arm
+Step 5. rotate 90 degrees
+Step 6. lower arm
+Step 7. grab cube 2, move one tiny step
+Step 8. rotate 90 degrees, raise arm
+Step 9. lower arm
+Step 10. release cube 2, move one tiny step
+Step 11. rotate 180 degrees, raise arm
+Step 12. lower arm
+Step 13. grab cube 1, rotate 90 degrees raise arm
+Step 14. lower arm
+Step 15. release cube 1, raise part of the arm
+Step 16. rotate 90 degrees, reposition arm
+Step 17. lower arm, Step 1. triggers

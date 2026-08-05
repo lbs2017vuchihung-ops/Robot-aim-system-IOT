@@ -1,0 +1,7 @@
+1. TỤ ĐIỆN (Chống giật Servo và sập nguồn) (chân dài (+), chân ngắn (-))
+   Tác dụng: Như một "bình chứa điện phụ". Khi 4 con Servo cùng nhúc nhích, nó bù điện ngay lập tức để điện áp không bị tụt.
+   Vị trí cắm: Cắm song song vào Dải nguồn của Servo (Breadboard 2 hoặc rãnh cấp điện riêng cho Servo).
+2. ĐIỆN TRỞ (Bảo vệ cổng vi điều khiển ESP32)
+  Tác dụng: Giảm chấn tia lửa điện ngầm (Back EMF) dội từ cuộn dây của Servo về làm cháy chân tín hiệu (GPIO) của ESP32.
+  Vị trí cắm: Mắc nối tiếp vào giữa dây tín hiệu của ESP32 và dây tín hiệu của Servo.
+  Số lượng: Bạn có 4 con Servo thì cần 4 con Điện trở. (Điện trở thì cắm chiều nào cũng được, không phân cực).

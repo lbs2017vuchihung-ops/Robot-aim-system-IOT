@@ -1,0 +1,21 @@
+# 1. Bỏ qua các file rác của hệ điều hành
+.DS_Store
+Thumbs.db
+
+# 2. Bỏ qua các file rác và file biên dịch của Arduino (trong thư mục firmware)
+build/
+*.hex
+*.elf
+*.bin
+*.a
+*.o
+
+# 3. Bỏ qua môi trường ảo và bộ nhớ tạm của Python (trong thư mục web_app)
+__pycache__/
+.venv/
+venv/
+*.pyc
+
+# 4. Bỏ qua file Cơ sở dữ liệu (Database) để bảo mật
+*.db
+*.sqlite3

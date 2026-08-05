@@ -1,0 +1,7 @@
+In 1 cái cho các chi tiết thân: Base, Waist, Arm_01, Arm_02_v3, Arm_03, Gripper_base.
+
+In 1 cặp bánh răng: 1 cái gear1 và 1 cái gear2.
+
+In 2 cái ngón kẹp: Gripper_1 (cho bên trái và bên phải).
+
+In 4 cái thanh truyền: grip_link_1 (mỗi ngón kẹp cần 2 thanh nối trên và dưới để giữ ngón tay luôn thẳng đứng khi di chuyển).

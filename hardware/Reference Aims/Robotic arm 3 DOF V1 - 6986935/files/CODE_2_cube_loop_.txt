@@ -1,0 +1,147 @@
+#include <AccelStepper.h>
+#define FULLSTEP 4
+#define HALFSTEP 8
+// NOTE: Stepper motor 1 at the base
+#define motorPin1  5 
+#define motorPin2  4 
+#define motorPin3  3 
+#define motorPin4  2 
+// NOTE: Stepper motor 2
+#define motorPin5  9 
+#define motorPin6  8 
+#define motorPin7  7  
+#define motorPin8  6   
+// NOTE: Stepper motor 3
+#define motorPin9  18    
+#define motorPin10  19 
+#define motorPin11  20 
+#define motorPin12  21 
+// NOTE: The sequence 1-3-2-4 is required for proper sequencing of 28BYJ48
+AccelStepper stepper1(FULLSTEP, motorPin1, motorPin3, motorPin2, motorPin4);
+AccelStepper stepper2(FULLSTEP, motorPin5, motorPin7, motorPin6, motorPin8);
+AccelStepper stepper3(FULLSTEP, motorPin9, motorPin11, motorPin10, motorPin12);
+// NOTE: End effector
+const int motorPinEE  = 16; // Pin  7 of L293
+const int motorPinEE2  = 14;  // Pin  2 of L293
+void setup()
+{
+    pinMode(motorPinEE, OUTPUT);
+    pinMode(motorPinEE2, OUTPUT);  
+  stepper1.setMaxSpeed(4000.0);
+  stepper1.setAcceleration(100.0);
+  stepper1.setSpeed(200);
+  stepper2.setMaxSpeed(4000.0);
+  stepper2.setAcceleration(100.0);
+  stepper2.setSpeed(200); 
+  stepper3.setMaxSpeed(4000.0);
+  stepper3.setAcceleration(100.0);
+  stepper3.setSpeed(200);  
+  // NOTE: One full rotation for the 28BYJ48 has 2048 steps in FULLSTEP mode.
+  // NOTE: The robot needs to be zeroed (manually placed in the starting position) before starting.
+  // NOTE: The steps are counted from the initial position
+  stepper2.moveTo(400); 
+  stepper3.moveTo(-400);    
+}
+void loop()
+ // NOTE: Each "if statement" is one step of the loop
+{     
+  if (stepper1.currentPosition() == 0 && stepper2.currentPosition() == 400 && stepper3.currentPosition() == -400 && stepper3.distanceToGo() == 0 && stepper2.distanceToGo() == 0 && stepper2.distanceToGo() == 0){
+    // NOTE: motorPinEE and EE2 can be set HIGH-LOW (motor turns in one direction), LOW-LOW (motor off) and LOW-HIGH (motor turns in other direction)
+    // NOTE: The direction in which the motor turns depends on the wiring and programing. Test it out!
+    digitalWrite(motorPinEE, HIGH);
+    digitalWrite(motorPinEE2, LOW);
+    delay(100);
+    stepper1.moveTo(-1024);
+    stepper2.moveTo(200);    
+    stepper3.moveTo(-200);  
+  }
+  if (stepper1.currentPosition() == -1024 && stepper2.currentPosition() == 200 && stepper3.currentPosition() == -200 && stepper1.distanceToGo() == 0 && stepper2.distanceToGo() == 0 && stepper3.distanceToGo() == 0){
+    stepper2.moveTo(400);    
+    stepper3.moveTo(-400);  
+  }
+  if (stepper1.currentPosition() == -1024 && stepper2.currentPosition() == 400 && stepper3.currentPosition() == -400 && stepper1.distanceToGo() == 0 && stepper2.distanceToGo() == 0 && stepper3.distanceToGo() == 0){    
+    digitalWrite(motorPinEE, LOW);
+    digitalWrite(motorPinEE2, HIGH);
+    delay(100);    
+    digitalWrite(motorPinEE, LOW);
+    digitalWrite(motorPinEE2, LOW);
+    delay(100); 
+    stepper1.moveTo(-1023);
+  } 
+  if (stepper1.currentPosition() == -1023 && stepper2.currentPosition() == 400 && stepper3.currentPosition() == -400 && stepper1.distanceToGo() == 0 && stepper2.distanceToGo() == 0 && stepper3.distanceToGo() == 0){
+    stepper2.moveTo(200);    
+    stepper3.moveTo(-200); 
+  }
+  if (stepper1.currentPosition() == -1023 && stepper2.currentPosition() == 200 && stepper3.currentPosition() == -200 && stepper1.distanceToGo() == 0 && stepper2.distanceToGo() == 0 && stepper3.distanceToGo() == 0)
+    stepper1.moveTo(-512);
+  if (stepper1.currentPosition() == -512 && stepper2.currentPosition() == 200 && stepper3.currentPosition() == -200 && stepper1.distanceToGo() == 0 && stepper2.distanceToGo() == 0 && stepper3.distanceToGo() == 0){ 
+    stepper2.moveTo(400);    
+    stepper3.moveTo(-400);    
+  }
+  if (stepper1.currentPosition() == -512 && stepper2.currentPosition() == 400 && stepper3.currentPosition() == -400 && stepper1.distanceToGo() == 0 && stepper2.distanceToGo() == 0 && stepper3.distanceToGo() == 0){
+    digitalWrite(motorPinEE, HIGH);
+    digitalWrite(motorPinEE2, LOW);
+    delay(100);
+    stepper1.moveTo(-511);
+  }
+  if (stepper1.currentPosition() == -511 && stepper2.currentPosition() == 400 && stepper3.currentPosition() == -400 && stepper1.distanceToGo() == 0 && stepper2.distanceToGo() == 0 && stepper3.distanceToGo() == 0){
+    stepper1.moveTo(-1);
+    stepper2.moveTo(200);    
+    stepper3.moveTo(-200); 
+  }    
+  if (stepper1.currentPosition() == -1 && stepper2.currentPosition() == 200 && stepper3.currentPosition() == -200 && stepper1.distanceToGo() == 0 && stepper2.distanceToGo() == 0 && stepper3.distanceToGo() == 0){ 
+    stepper2.moveTo(400);    
+    stepper3.moveTo(-399);
+  }
+   if (stepper1.currentPosition() == -1 && stepper2.currentPosition() == 400 && stepper3.currentPosition() == -399 && stepper1.distanceToGo() == 0 && stepper2.distanceToGo() == 0 && stepper3.distanceToGo() == 0){    
+    digitalWrite(motorPinEE, LOW);
+    digitalWrite(motorPinEE2, HIGH);
+    delay(100);    
+    digitalWrite(motorPinEE, LOW);
+    digitalWrite(motorPinEE2, LOW);
+    delay(100); 
+    stepper1.moveTo(-2); 
+   }
+  if (stepper1.currentPosition() == -2 && stepper2.currentPosition() == 400 && stepper3.currentPosition() == -399 && stepper1.distanceToGo() == 0 && stepper2.distanceToGo() == 0 && stepper3.distanceToGo() == 0){
+    stepper1.moveTo(-1025);
+    stepper2.moveTo(200);    
+    stepper3.moveTo(-200); 
+  }
+  if (stepper1.currentPosition() == -1025 && stepper2.currentPosition() == 200 && stepper3.currentPosition() == -200 && stepper1.distanceToGo() == 0 && stepper2.distanceToGo() == 0 && stepper3.distanceToGo() == 0){ 
+    stepper2.moveTo(400);    
+    stepper3.moveTo(-399);
+  }
+  if (stepper1.currentPosition() == -1025 && stepper2.currentPosition() == 400 && stepper3.currentPosition() == -399 && stepper3.distanceToGo() == 0 && stepper2.distanceToGo() == 0 && stepper2.distanceToGo() == 0){
+    digitalWrite(motorPinEE, HIGH);
+    digitalWrite(motorPinEE2, LOW);
+    delay(100);
+    stepper1.moveTo(-512);
+    stepper2.moveTo(199);    
+    stepper3.moveTo(-200);  
+  }
+  if (stepper1.currentPosition() == -512 && stepper2.currentPosition() == 199 && stepper3.currentPosition() == -200 && stepper1.distanceToGo() == 0 && stepper2.distanceToGo() == 0 && stepper3.distanceToGo() == 0){
+    stepper2.moveTo(399);    
+    stepper3.moveTo(-400);  
+  }
+  if (stepper1.currentPosition() == -512 && stepper2.currentPosition() == 399 && stepper3.currentPosition() == -400 && stepper1.distanceToGo() == 0 && stepper2.distanceToGo() == 0 && stepper3.distanceToGo() == 0){    
+    digitalWrite(motorPinEE, LOW);
+    digitalWrite(motorPinEE2, HIGH);
+    delay(100);    
+    digitalWrite(motorPinEE, LOW);
+    digitalWrite(motorPinEE2, LOW);
+    delay(100); 
+    stepper2.moveTo(201);
+  } 
+  if (stepper1.currentPosition() == -512 && stepper2.currentPosition() == 201 && stepper3.currentPosition() == -400 && stepper1.distanceToGo() == 0 && stepper2.distanceToGo() == 0 && stepper3.distanceToGo() == 0){
+    stepper1.moveTo(0);
+    stepper2.moveTo(400);
+    stepper3.moveTo(-100);    
+  }    
+  if (stepper1.currentPosition() == 0 && stepper2.currentPosition() == 400 && stepper3.currentPosition() == -100 && stepper1.distanceToGo() == 0 && stepper2.distanceToGo() == 0 && stepper3.distanceToGo() == 0)
+    stepper3.moveTo(-400);
+   
+  stepper1.run();
+  stepper2.run();
+  stepper3.run();
+
+}

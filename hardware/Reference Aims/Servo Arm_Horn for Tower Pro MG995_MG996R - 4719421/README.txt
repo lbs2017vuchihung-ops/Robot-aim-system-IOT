@@ -1,0 +1,4 @@
+Servo Arm/Horn for Tower Pro MG995/MG996R by Azxiana on Thingiverse: https://www.thingiverse.com/thing:4719421
+
+Summary:
+This is remixed to be close to the dimensions of the servo arm that ships with the authentic Tower Pro MG996R servos.  Unfortunately getting the authentic servos in my area is difficult so I am working with clones and need the correct servo arm for Alex Korvin's Walking UAZ robot.Print with 100% infill.  It only adds a few minutes and results in a much stronger part.I recommend using brim for bed adhesion since this is a small part.You might be able to get away without support for the screw recess.Print as shown with the flat side down.Blend file is included if you need to modify it outside of a STL format.
