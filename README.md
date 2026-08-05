@@ -8,7 +8,7 @@ Dự án được nghiên cứu và phát triển bởi nhóm hai sinh viên Đ�
 ## Hình Ảnh Thực Tế Hệ Thống
 
 <p align="center">
-  <img src="docs/images/anh_thuc_te_he_thong.png" alt="Mô hình Robot Aim thực tế 1" width="100%" />
+  <img src="docs/images/Anh_thuc_te_he_thong.png" alt="Mô hình Robot Aim thực tế 1" width="100%" />
 </p>
 
 ---
@@ -46,10 +46,10 @@ Dự án được nghiên cứu và phát triển bởi nhóm hai sinh viên Đ�
 
 ### 3. Sơ đồ mạch trực quan
 **Sơ đồ đấu nối hệ thống cảm biến & Servo:**
-![Sơ đồ Cảm biến & Servo](docs/Sơ_đồ_mạch_chi_tiết/So_do_chan_cam_bien.png)
+![Sơ đồ Cảm biến & Servo](docs/So_do_mach_chi_tiet/So_do_chan_cam_bien.png)
 
 **Sơ đồ đấu nối Động cơ DC & Hệ thống Nguồn:**
-![Sơ đồ Băng tải & Nguồn](docs/Sơ_đồ_mạch_chi_tiết/So_do_chan_bang_tai.png)
+![Sơ đồ Băng tải & Nguồn](docs/So_do_mach_chi_tiet/So_do_chan_bang_tai.png)
 
 ---
 
