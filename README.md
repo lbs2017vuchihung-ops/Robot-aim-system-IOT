@@ -48,12 +48,12 @@ Dự án được nghiên cứu và phát triển bởi nhóm hai sinh viên Đ�
 
 **Sơ đồ đấu nối hệ thống cảm biến & Servo:**
 <p align="left">
-  <img src="docs/So_do_mach_chi_tiet/So_do_chan_cam_bien.png" alt="Sơ đồ Cảm biến & Servo" width="90%" />
+  <img src="docs/So_do_mach_chi_tiet/So_do_chan_cam_bien.png" alt="Sơ đồ Cảm biến & Servo" width="75%" />
 </p>
 
 **Sơ đồ đấu nối Động cơ DC & Hệ thống Nguồn:**
 <p align="left">
-  <img src="docs/So_do_mach_chi_tiet/So_do_chan_bang_tai.png" alt="Sơ đồ Băng tải & Nguồn" width="90%" />
+  <img src="docs/So_do_mach_chi_tiet/So_do_chan_bang_tai.png" alt="Sơ đồ Băng tải & Nguồn" width="75%" />
 </p>
 
 ---
